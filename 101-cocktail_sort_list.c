@@ -1,16 +1,16 @@
 #include "sort.h"
 
-void swap_node_ahead(listint_t **list, listint_t **tail, listint_t **shaker);
-void swap_node_behind(listint_t **list, listint_t **tail, listint_t **shaker);
+void swap_ahead(listint_t **list, listint_t **tail, listint_t **shaker);
+void swap_behind(listint_t **list, listint_t **tail, listint_t **shaker);
 void cocktail_sort_list(listint_t **list);
 
 /**
- * swap_node_ahead - Swap a node in a listint_t
+ * swap_ahead -to Swap a node in a listint_t
  * @list: A pointer to the head of a doubly-linked list of integers.
  * @tail: A pointer to the tail of the doubly-linked list.
  * @shaker: A pointer to the current swapping node of the cocktail shaker algo.
  */
-void swap_node_ahead(listint_t **list, listint_t **tail, listint_t **shaker)
+void swap_ahead(listint_t **list, listint_t **tail, listint_t **shaker)
 {
 	listint_t *tmp = (*shaker)->next;
 
@@ -30,12 +30,12 @@ void swap_node_ahead(listint_t **list, listint_t **tail, listint_t **shaker)
 }
 
 /**
- * swap_node_behind - Swap a node in a listint_t
+ * swap_behind -to Swap a node in a listint_t
  * @list: A pointer to the head of a doubly-linked list of integers.
  * @tail: A pointer to the tail of the doubly-linked list.
  * @shaker: A pointer to the current swapping node of the cocktail shaker algo.
  */
-void swap_node_behind(listint_t **list, listint_t **tail, listint_t **shaker)
+void swap_behind(listint_t **list, listint_t **tail, listint_t **shaker)
 {
 	listint_t *tmp = (*shaker)->prev;
 
@@ -55,7 +55,7 @@ void swap_node_behind(listint_t **list, listint_t **tail, listint_t **shaker)
 }
 
 /**
- * cocktail_sort_list - Sort a listint_t.
+ * cocktail_sort_list -to Sort a listint_t.
  * @list: A pointer to the head of a listint_t doubly-linked list.
  */
 void cocktail_sort_list(listint_t **list)
@@ -76,7 +76,7 @@ void cocktail_sort_list(listint_t **list)
 		{
 			if (shaker->n > shaker->next->n)
 			{
-				swap_node_ahead(list, &tail, &shaker);
+				swap_ahead(list, &tail, &shaker);
 				print_list((const listint_t *)*list);
 				shaken_not_stirred = false;
 			}
@@ -86,7 +86,7 @@ void cocktail_sort_list(listint_t **list)
 		{
 			if (shaker->n < shaker->prev->n)
 			{
-				swap_node_behind(list, &tail, &shaker);
+				swap_behind(list, &tail, &shaker);
 				print_list((const listint_t *)*list);
 				shaken_not_stirred = false;
 			}
